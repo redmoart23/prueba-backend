@@ -9,7 +9,6 @@ API REST desarrollada con NestJS para la gestión de productos, utilizando Prism
 - **ORM**: Prisma
 - **Operaciones CRUD** completas para productos
 - **Validación** de datos
-- **Documentación** automática con Swagger
 
 ## 📋 Prerrequisitos
 
@@ -115,7 +114,7 @@ npm run test:e2e
 | GET | `/api/v1/products` | Obtener todos los productos |
 | GET | `/api/v1/products/:id` | Obtener un producto por ID |
 | POST | `/api/v1/products` | Crear un nuevo producto |
-| PUT | `/api/v1/products/:id` | Actualizar un producto |
+| PATCH | `/api/v1/products/:id` | Actualizar un producto |
 | DELETE | `/api/v1/products/:id` | Eliminar un producto |
 
 ### Utilidades
