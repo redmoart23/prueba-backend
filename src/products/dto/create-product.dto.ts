@@ -1,5 +1,4 @@
 import { IsNumber, IsString, Min, MinLength } from 'class-validator';
-import { Decimal } from 'generated/prisma/runtime/library';
 
 export class CreateProductDto {
   @IsString()
@@ -7,7 +6,7 @@ export class CreateProductDto {
   nombre: string;
 
   @IsNumber()
-  precio: Decimal;
+  precio: number;
 
   @IsNumber()
   @Min(0)
