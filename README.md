@@ -137,9 +137,8 @@ curl -X POST http://localhost:3000/api/v1/seed
 curl -X POST http://localhost:3000/api/v1/products \
   -H "Content-Type: application/json" \
   -d '{
-    "name": "Producto de ejemplo",
-    "description": "Descripción del producto",
-    "price": 29.99,
+    "nombre": "Producto de ejemplo",
+    "precio": 29.99,
     "stock": 100
   }'
 ```
@@ -156,7 +155,6 @@ curl http://localhost:3000/api/v1/products
 src/
 ├── products/           # Módulo de productos
 │   ├── dto/           # Data Transfer Objects
-│   ├── entities/      # Entidades de Prisma
 │   ├── products.controller.ts
 │   ├── products.service.ts
 │   └── products.module.ts
