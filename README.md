@@ -1,98 +1,210 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# Products CRUD API
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+API REST desarrollada con NestJS para la gestión de productos, utilizando Prisma ORM y PostgreSQL como base de datos.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## 🚀 Características
 
-## Description
+- **Framework**: NestJS
+- **Base de datos**: PostgreSQL
+- **ORM**: Prisma
+- **Operaciones CRUD** completas para productos
+- **Validación** de datos
+- **Documentación** automática con Swagger
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## 📋 Prerrequisitos
 
-## Project setup
+Antes de comenzar, asegúrate de tener instalado:
 
-```bash
-$ npm install
-```
+- [Node.js](https://nodejs.org/) (versión 16 o superior)
+- [npm](https://www.npmjs.com/)
+- [PostgreSQL](https://www.postgresql.org/)
 
-## Compile and run the project
+## 🛠️ Instalación
+
+### 1. Revisar pull request
+
+
+### 2. Instalar dependencias
 
 ```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+npm install
 ```
 
-## Run tests
+### 3. Configurar variables de entorno
+
+Renombra el archivo `.env.template` a `.env`:
 
 ```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+cp .env.template .env
 ```
 
-## Deployment
+Configura las siguientes variables de entorno en el archivo `.env`:
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
+```env
+NODE_ENV=dev
+PORT=3000
+DATABASE_URL=postgresql://postgres:password@localhost:5432/db?schema=public
+```
 
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+> **Nota**: Asegúrate de actualizar la `DATABASE_URL` con tus credenciales de PostgreSQL.
+
+### 4. Configurar la base de datos
 
 ```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
+# Generar el cliente de Prisma
+npx prisma generate
+
+# Ejecutar las migraciones
+npx prisma migrate dev
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+## 🚀 Uso
 
-## Resources
+### Desarrollo
 
-Check out a few resources that may come in handy when working with NestJS:
+Para ejecutar la aplicación en modo desarrollo:
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+```bash
+npm run start:dev
+```
 
-## Support
+La API estará disponible en `http://localhost:3000`
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+### Producción
 
-## Stay in touch
+```bash
+# Construir la aplicación
+npm run build
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+# Ejecutar en producción
+npm run start:prod
+```
 
-## License
+## 🌱 Seed de datos
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+Para poblar la base de datos con productos de ejemplo, realiza una petición POST al endpoint de seed:
+
+```bash
+curl -X POST http://localhost:3000/api/v1/seed
+```
+
+Este endpoint agregará productos de muestra a tu base de datos para que puedas probar la API inmediatamente.
+
+## 🧪 Testing
+
+```bash
+Para ejecutar las pruebas:
+npm run test
+
+# Ejecutar pruebas en modo watch
+npm run test:watch
+
+# Ejecutar pruebas de cobertura
+npm run test:cov
+
+# Ejecutar pruebas e2e
+npm run test:e2e
+```
+
+## 📚 API Endpoints
+
+### Productos
+
+| Método | Endpoint | Descripción |
+|--------|----------|-------------|
+| GET | `/api/v1/products` | Obtener todos los productos |
+| GET | `/api/v1/products/:id` | Obtener un producto por ID |
+| POST | `/api/v1/products` | Crear un nuevo producto |
+| PUT | `/api/v1/products/:id` | Actualizar un producto |
+| DELETE | `/api/v1/products/:id` | Eliminar un producto |
+
+### Utilidades
+
+| Método | Endpoint | Descripción |
+|--------|----------|-------------|
+| POST | `/api/v1/seed` | Poblar la base de datos con productos de ejemplo |
+
+### Ejemplo de uso
+
+#### Poblar la base de datos con datos de ejemplo
+
+```bash
+curl -X POST http://localhost:3000/api/v1/seed
+```
+
+#### Crear un producto
+
+```bash
+curl -X POST http://localhost:3000/api/v1/products \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "Producto de ejemplo",
+    "description": "Descripción del producto",
+    "price": 29.99,
+    "stock": 100
+  }'
+```
+
+#### Obtener todos los productos
+
+```bash
+curl http://localhost:3000/api/v1/products
+```
+
+## 🗂️ Estructura del proyecto
+
+```
+src/
+├── products/           # Módulo de productos
+│   ├── dto/           # Data Transfer Objects
+│   ├── entities/      # Entidades de Prisma
+│   ├── products.controller.ts
+│   ├── products.service.ts
+│   └── products.module.ts
+├── prisma/            # Configuración de Prisma
+│   ├── schema.prisma  # Esquema de la base de datos
+│   └── migrations/    # Migraciones
+├── app.module.ts      # Módulo principal
+└── main.ts           # Punto de entrada
+```
+
+## 🛠️ Scripts disponibles
+
+| Script | Descripción |
+|--------|-------------|
+| `npm run start` | Ejecutar en modo producción |
+| `npm run start:dev` | Ejecutar en modo desarrollo |
+| `npm run start:debug` | Ejecutar en modo debug |
+| `npm run build` | Construir la aplicación |
+| `npm run test` | Ejecutar pruebas unitarias |
+| `npm run test:watch` | Ejecutar pruebas en modo watch |
+| `npm run test:cov` | Ejecutar pruebas con cobertura |
+| `npm run test:e2e` | Ejecutar pruebas end-to-end |
+
+## 🔧 Tecnologías utilizadas
+
+- **[NestJS](https://nestjs.com/)** - Framework de Node.js
+- **[Prisma](https://www.prisma.io/)** - ORM de próxima generación
+- **[PostgreSQL](https://www.postgresql.org/)** - Base de datos relacional
+- **[TypeScript](https://www.typescriptlang.org/)** - Superset de JavaScript
+- **[Jest](https://jestjs.io/)** - Framework de testing
+
+## 🤝 Contribuir
+
+1. Fork el proyecto
+2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
+3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
+4. Push a la rama (`git push origin feature/AmazingFeature`)
+5. Abre un Pull Request
+
+## 📝 Licencia
+
+Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles.
+
+## 👥 Autor
+
+- Tu nombre - [@redmoart](https://github.com/redmoart23)
+
+## 🐛 Reportar problemas
+
+Si encuentras algún problema, por favor abre un [issue](https://github.com/tu_usuario/tu_repositorio/issues) en GitHub.
